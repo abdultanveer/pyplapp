@@ -4,6 +4,7 @@ import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.widget.Button
+import android.widget.TextView
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
@@ -27,9 +28,20 @@ class MainActivity : AppCompatActivity() {
         btnHome.setOnClickListener {
             var homeIntent = Intent(this,HomeActivity::class.java)
             homeIntent.putExtra("pypl","android")
-            startActivity(homeIntent)
+            //startActivity(homeIntent)
+            startActivityForResult(homeIntent,123)
         }
     }
+
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        super.onActivityResult(requestCode, resultCode, data)
+        //resultcode = nose
+        var mainTextView:TextView = findViewById(R.id.tvMain)
+        var contact = data?.extras?.getString("con")
+        mainTextView.text = contact
+    }
+
+
 
     override fun onResume() {
         super.onResume()
