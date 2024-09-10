@@ -26,6 +26,7 @@ class MainActivity : AppCompatActivity() {
         Log.v(TAG,"activity is visible-hatched-started")
         btnHome.setOnClickListener {
             var homeIntent = Intent(this,HomeActivity::class.java)
+            homeIntent.putExtra("pypl","android")
             startActivity(homeIntent)
         }
     }
