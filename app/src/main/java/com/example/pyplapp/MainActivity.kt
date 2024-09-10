@@ -1,8 +1,11 @@
 package com.example.pyplapp
 
 import android.content.Intent
+import android.net.Uri
 import android.os.Bundle
+import android.provider.AlarmClock
 import android.util.Log
+import android.view.View
 import android.widget.Button
 import android.widget.TextView
 import androidx.activity.enableEdgeToEdge
@@ -36,36 +39,35 @@ class MainActivity : AppCompatActivity() {
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
         //resultcode = nose
-        var mainTextView:TextView = findViewById(R.id.tvMain)
-        var contact = data?.extras?.getString("con")
-        mainTextView.text = contact
+        if(requestCode == 123 && resultCode == RESULT_OK) {
+
+            var mainTextView: TextView = findViewById(R.id.tvMain)
+            var contact = data?.extras?.getString("con")
+            mainTextView.text = contact
+        }
     }
 
 
 
-    override fun onResume() {
-        super.onResume()
-        Log.e(TAG,"activity resumed-awake")
-
+    fun openDialer(view: View) {
+        var dialIntent = Intent(Intent.ACTION_DIAL, Uri.parse("tel:9876543"))
+        startActivity(dialIntent)
     }
 
-    override fun onPause() {
-        super.onPause()
-        Log.w(TAG,"activity paused-sleep")
+    fun createAlarm(message: String, hour: Int, minutes: Int) {
+        val intent = Intent(AlarmClock.ACTION_SET_ALARM).apply {
+            putExtra(AlarmClock.EXTRA_MESSAGE, message)
+            putExtra(AlarmClock.EXTRA_HOUR, hour)
+            putExtra(AlarmClock.EXTRA_MINUTES, minutes)
+        }
+       // if (intent.resolveActivity(packageManager) != null) {
+            startActivity(intent)
+       // }
     }
 
-    override fun onStop() {
-        super.onStop()
-        Log.d(TAG,"activity stopped-hibernate")
-
+    fun setAlarm(view: View) {
+        createAlarm("paypal",11,37)
     }
-
-    override fun onDestroy() {
-        super.onDestroy()
-        Log.v(TAG,"activity destroyed")
-
-    }
-
 
 
 }

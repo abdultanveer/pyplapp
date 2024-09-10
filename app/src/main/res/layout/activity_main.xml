@@ -28,4 +28,25 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
+    <Button
+        android:id="@+id/btnDial"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="22dp"
+        android:layout_marginTop="1dp"
+        android:onClick="openDialer"
+        android:text="dial"
+        app:layout_constraintStart_toEndOf="@+id/btnHome"
+        app:layout_constraintTop_toTopOf="@+id/btnHome" />
+
+    <Button
+        android:id="@+id/btnAlarm"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="21dp"
+        android:onClick="setAlarm"
+        android:text="alarm"
+        app:layout_constraintBaseline_toBaselineOf="@+id/btnDial"
+        app:layout_constraintStart_toEndOf="@+id/btnDial" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
