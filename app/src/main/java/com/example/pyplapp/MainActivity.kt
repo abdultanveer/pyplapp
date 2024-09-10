@@ -14,7 +14,6 @@ import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 
 class MainActivity : AppCompatActivity() {
-    var TAG = MainActivity::class.java.simpleName
     lateinit var btnHome:Button
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -70,6 +69,7 @@ class MainActivity : AppCompatActivity() {
         createAlarm("paypal",11,37)
         var a = 10
         var b = a * 20
+       // val bookAuth2 = "Harry Potter" to "J. K. Rowling"
 
         repeat(5){
           var c =  a * b
@@ -78,5 +78,9 @@ class MainActivity : AppCompatActivity() {
 
     }
 
+    companion object{
+        var TAG = MainActivity::class.java.simpleName
+
+    }
 
 }
