@@ -68,6 +68,12 @@ class MainActivity : AppCompatActivity() {
 
     fun setAlarm(view: View) {
         createAlarm("paypal",11,37)
+        var a = 10
+        var b = a * 20
+
+        repeat(5){
+          var c =  a * b
+        }
         throw NullPointerException("crash demo")
 
     }
