@@ -16,6 +16,7 @@ import androidx.core.view.WindowInsetsCompat
 class MainActivity : AppCompatActivity() {
     var TAG = MainActivity::class.java.simpleName
     lateinit var btnHome:Button
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
@@ -67,6 +68,8 @@ class MainActivity : AppCompatActivity() {
 
     fun setAlarm(view: View) {
         createAlarm("paypal",11,37)
+        throw NullPointerException("crash demo")
+
     }
 
 
