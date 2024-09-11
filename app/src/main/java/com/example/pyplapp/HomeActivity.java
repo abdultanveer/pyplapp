@@ -25,8 +25,8 @@ public class HomeActivity extends AppCompatActivity {
         btnSelect = findViewById(R.id.btnSelect);
 
 
-      String data =  getIntent().getExtras().getString("pypl");
-      homeTv.setText(data);
+     /* String data =  getIntent().getExtras().getString("pypl");
+      homeTv.setText(data);*/
 
     }
 
