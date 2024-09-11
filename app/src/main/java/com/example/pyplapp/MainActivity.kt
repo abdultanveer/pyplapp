@@ -29,7 +29,7 @@ class MainActivity : AppCompatActivity() {
         super.onStart()
         Log.v(TAG,"activity is visible-hatched-started")
         btnHome.setOnClickListener {
-            var homeIntent = Intent(this,HomeActivity::class.java)
+            var homeIntent = Intent(this,HomeActivity::class.java) //explicit intent
             homeIntent.putExtra("pypl","android")
             //startActivity(homeIntent)
             startActivityForResult(homeIntent,123)
@@ -50,7 +50,7 @@ class MainActivity : AppCompatActivity() {
 
 
     fun openDialer(view: View) {
-        var dialIntent = Intent(Intent.ACTION_DIAL, Uri.parse("tel:9876543"))
+        var dialIntent = Intent(Intent.ACTION_DIAL, Uri.parse("tel:9876543")) //implicit intent
         startActivity(dialIntent)
     }
 
@@ -81,6 +81,11 @@ class MainActivity : AppCompatActivity() {
     companion object{
         var TAG = MainActivity::class.java.simpleName
 
+    }
+
+    fun openCalendar(view: View) {
+        var calIntent = Intent("ineed.water")
+        startActivity(calIntent)
     }
 
 }

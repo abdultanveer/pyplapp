@@ -67,10 +67,24 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="19dp"
         android:layout_marginTop="27dp"
+        android:layout_marginEnd="14dp"
         android:ems="10"
         android:hint="@string/enter_email"
         android:inputType="text"
+        app:layout_constraintEnd_toStartOf="@+id/btnCal"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/etName" />
+
+    <Button
+        android:id="@+id/btnCal"
+        android:onClick="openCalendar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="26dp"
+        android:layout_marginBottom="2dp"
+        android:text="calendar"
+        app:layout_constraintBottom_toBottomOf="@+id/etEmail"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/etEmail" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
