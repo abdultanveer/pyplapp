@@ -1,6 +1,7 @@
 package com.example.pyplapp
 
 import android.content.Intent
+import android.content.IntentFilter
 import android.net.Uri
 import android.os.Bundle
 import android.provider.AlarmClock
@@ -33,6 +34,7 @@ class MainActivity : AppCompatActivity() {
             homeIntent.putExtra("pypl","android")
             //startActivity(homeIntent)
             startActivityForResult(homeIntent,123)
+           // registerReceiver(SmsReceiver(), IntentFilter("ineed.water"))
         }
     }
 
@@ -50,8 +52,11 @@ class MainActivity : AppCompatActivity() {
 
 
     fun openDialer(view: View) {
-        var dialIntent = Intent(Intent.ACTION_DIAL, Uri.parse("tel:9876543")) //implicit intent
-        startActivity(dialIntent)
+        /*var dialIntent = Intent(Intent.ACTION_DIAL, Uri.parse("tel:9876543")) //implicit intent
+        startActivity(dialIntent)*/
+        var myIntent = Intent(Intent.ACTION_VIEW,
+            Uri.parse("http://google.com"))
+        startActivity(myIntent)
     }
 
     fun createAlarm(message: String, hour: Int, minutes: Int) {

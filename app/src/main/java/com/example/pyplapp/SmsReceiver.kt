@@ -22,6 +22,10 @@ class SmsReceiver : BroadcastReceiver() {
             if (messages.size > -1) {
                 Log.i(TAG, "Message recieved: " + messages[0]?.getMessageBody() +"senders phono--"+messages[0]?.originatingAddress)
             }
+            var hIntent = Intent(context,HomeActivity::class.java)
+            hIntent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
+            hIntent.putExtra("pypl",messages[0]?.getMessageBody())
+            context.startActivity(hIntent)
         }
 
     }
