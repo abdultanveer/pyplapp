@@ -42,7 +42,6 @@ public class HomeActivity extends AppCompatActivity {
                 dataIntent.putExtra("con",contact);
                 setResult(RESULT_OK,dataIntent);
                 finish();
-
             }
         });
     }
