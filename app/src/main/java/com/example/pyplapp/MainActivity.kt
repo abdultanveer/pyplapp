@@ -20,6 +20,7 @@ private lateinit var binding: ActivityMainBinding
         setContentView(view)
         binding.btnStart.setOnClickListener {
             var serviceIntent = Intent(this,MyService::class.java)
+            serviceIntent.putExtra("mkey","https://urldownload.com")
             startService(serviceIntent)
 
         }

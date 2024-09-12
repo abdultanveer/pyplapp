@@ -2,6 +2,7 @@ package com.example.pyplapp
 
 import android.app.Service
 import android.content.Intent
+import android.media.MediaPlayer
 import android.os.IBinder
 import android.util.Log
 
@@ -14,7 +15,10 @@ class MyService : Service() {
 
     override fun onStartCommand(intent: Intent?, flags: Int, startId: Int): Int {
          super.onStartCommand(intent, flags, startId)
-        Log.i(TAG,"service started")
+        var mplayer = MediaPlayer.create(this,R.raw.music)
+        mplayer.start()
+        var data = intent?.getStringExtra("mkey")
+        Log.i(TAG,"service started--"+data)
 
         return START_STICKY
     }
